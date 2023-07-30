@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './index.css';
 import backgroundwebsite from './images/backgroundwebsite.png'
-import images from './images.js'
+import images from './images.js' /* This is to export the images object the image object which contains event pic and image descrption */
 
 
 const ImageSlider = () => {
@@ -24,6 +24,7 @@ const ImageSlider = () => {
             key={index}
             src={event.post}
             alt={`Post${index + 1}`}
+            // Rendering of the image using opacity
             className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
               index === slideIndex ? 'opacity-100' : 'opacity-0'
             }`}
@@ -31,10 +32,13 @@ const ImageSlider = () => {
         ))}
       </div>
       <div>
-      {images.map((event, index) => (
-            <h1>
+        {images.map((event, index) => (
+          // Conditional rendering to display event.name only when its image is active
+          index === slideIndex &&(
+            <h1 className='text-white' key={index}>
               {event.name}
             </h1>
+          )
         ))}
       </div>
       <div className="flex mt-4">

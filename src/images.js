@@ -1,16 +1,16 @@
 const image=[
     {
-        name:"Hexbugs",
+        name:"Puppies",
         post:require('./images/image1.jpeg'),
         id:0
     },
     {
-        name:"DevOps",
+        name:"Lioness",
         post:require('./images/image2.jpeg'),
         id:1
     },
     {
-        name:"Cryptox",
+        name:"Red Panda",
         post:require('./images/image3.jpeg'),
         id:2
     }

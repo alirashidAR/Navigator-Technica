@@ -1,12 +1,21 @@
 // src/App.js
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
 import './index.css';
 import backgroundwebsite from './images/backgroundwebsite.png'
 import images from './images.js' /* This is to export the images object the image object which contains event pic and image descrption */
 
 
-const ImageSlider = () => {
+  const ImageSlider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+    useEffect(() => {
+    // Automatically move to the next slide every 3 seconds (adjust as needed)
+    const interval = setInterval(() => {
+      setSlideIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(interval);
+  }, []);
 
   const prevSlide = () => {
     setSlideIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
@@ -15,6 +24,7 @@ const ImageSlider = () => {
   const nextSlide = () => {
     setSlideIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
+
 
   return (
     <div className="flex flex-col items-center justify-center h-screen"style={{'backgroundImage':`url(${backgroundwebsite})`}}>

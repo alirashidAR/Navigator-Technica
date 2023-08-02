@@ -13,7 +13,7 @@ const image=[
         name:"Red Panda",
         post:require('./images/image3.jpeg'),
         id:2
-    }
+    },
 ];
 
 

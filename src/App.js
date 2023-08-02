@@ -1,9 +1,17 @@
 // src/App.js
 import React, { useState,useEffect} from 'react';
 import './index.css';
-import backgroundwebsite from './images/backgroundwebsite.png'
 import images from './images.js' /* This is to export the images object the image object which contains event pic and image descrption */
+import backgrounds from './backgrounds.js'
+import Planet from './planetsContainer.js';
 
+  const App=()=>{
+    return(
+      <div>
+      <ImageSlider/>
+      </div>
+    )
+  }
 
   const ImageSlider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -11,7 +19,7 @@ import images from './images.js' /* This is to export the images object the imag
     // Automatically move to the next slide every 3 seconds (adjust as needed)
     const interval = setInterval(() => {
       setSlideIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 4000);
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
@@ -22,22 +30,23 @@ import images from './images.js' /* This is to export the images object the imag
   };
 
   const nextSlide = () => {
-    setSlideIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setSlideIndex((prevIndex) => (prevIndex + 1+ images.length) % images.length);
   };
 
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen"style={{'backgroundImage':`url(${backgroundwebsite})`}}>
-      <div className="slider w-64 h-40 relative overflow-hidden rounded-sm border-white border-y-4 border-x-4 p-5">
+    <div className="flex flex-col items-center justify-center h-screen"style={{'backgroundImage':`url(${backgrounds.backgroundwebsite})`}}>
+      <p className="text-4xl max-md:text-sm text-white font-bold text-center my-8">ENGAGEMENTS</p>
+      <div className="slider w-80 max-md:w-60 h-60 max-md:h-40 relative overflow-hidden rounded-2xl  border-blue-500 border-y-4 border-x-4 p-5">
         {images.map((event, index) => (
           <img
             key={index}
             src={event.post}
             alt={`Post${index + 1}`}
             // Rendering of the image using opacity
-            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
+            className={`rounded-3xl absolute top-0 left-0 w-full h-full transition-opacity duration-500 p-4  ${
               index === slideIndex ? 'opacity-100' : 'opacity-0'
-            }`}
+            }` }
           />
         ))}
       </div>
@@ -45,7 +54,7 @@ import images from './images.js' /* This is to export the images object the imag
         {images.map((event, index) => (
           // Conditional rendering to display event.name only when its image is active
           index === slideIndex &&(
-            <h1 className='text-white' key={index}>
+            <h1 className='text-white max-md:text-sm' key={index}>
               {event.name}
             </h1>
           )
@@ -71,4 +80,5 @@ import images from './images.js' /* This is to export the images object the imag
   );
 };
 
-export default ImageSlider;
+
+export default App;

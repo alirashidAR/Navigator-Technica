@@ -19,3 +19,14 @@ code {
     monospace;
 }
 
+.heading{
+  background: linear-gradient(to right, #FFFFFF 10%, #27A5EF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hexagon{
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  filter:url(#round);
+  border-color: #21539E;
+}

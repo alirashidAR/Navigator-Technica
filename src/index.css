@@ -13,20 +13,44 @@ body
   background-color:black;
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 .heading{
-  background: linear-gradient(to right, #FFFFFF 10%, #27A5EF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: clamp(10px, 7vw, 90px);
 }
 
-.hexagon{
-  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
-  filter:url(#round);
+.heading1{
+  color: white;
+}
+
+.heading2{
+  color: #27A5EF;
+}
+
+.caro{
+  border-style: solid;
+  border-width: 14px;
   border-color: #21539E;
+  border-radius: 20px;
+  height: 20rem;
+  width: 31rem;
+}
+
+.caption{
+  font-family: Inter;
+  font-size: clamp(30px, 5vw, 50px);
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+}
+
+.small-caption{
+  font-family: Inter;
+  font-size: clamp(15px, 2vw, 40px);
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
 }

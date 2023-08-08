@@ -35,9 +35,9 @@ import backgrounds from './backgrounds.js'
 
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen relative min-h-screen bg-cover bg-center "style={{'backgroundImage':`url(${backgrounds.backgroundwebsite})`}}>
+    <div className="flex flex-col items-center justify-center h-screen relative min-h-screen bg-cover bg-center bg">
       <p className='text-center mb-8'><span className="heading heading1">ENGA</span><span className='heading heading2'>GEMENTS</span></p>
-      <div className="caro slider max-md:w-48 max-md:h-60 relative overflow-hidden">
+      <div className="caro slider w-64 h-48 max-md:w-48 max-md:h-60 relative overflow-hidden">
         {images.map((event, index) => (
           <img
             key={index}
